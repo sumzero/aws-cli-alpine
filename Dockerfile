@@ -1,5 +1,10 @@
 FROM alpine:edge
 
+#install jq for JSON manipulation
+RUN apk update \
+ && apk add jq \
+ && rm -rf /var/cache/apk/*
+
 RUN addgroup -S aws && adduser -S -G aws aws
 
 RUN set -x\
@@ -16,4 +21,4 @@ RUN set -x\
 
 USER aws
 
-ENTRYPOINT ["aws"]
+CMD aws

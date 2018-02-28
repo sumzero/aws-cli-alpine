@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+  aws-cli:
+    build: ./
+    image: sumzero/aws-cli-alpine
